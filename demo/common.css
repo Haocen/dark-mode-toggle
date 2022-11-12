@@ -101,7 +101,8 @@ aside:nth-of-type(5) {
 }
 
 aside:nth-of-type(6) {
-  bottom: 5rem;
+  width: 10rem;
+  top: 20rem;
 }
 
 #content select,
