@@ -13,7 +13,7 @@ export class DarkModeToggle extends HTMLElement {
    * The "switch" appearance conveys the idea of a theme switcher (light/dark),
    * whereas "toggle" conveys the idea of a dark mode toggle (on/off).
    */
-  appearance: 'toggle' | 'switch';
+  appearance: 'toggle' | 'switch' | 'slider';
 
   /**
    * If true, remember the last selected mode ("dark" or "light"),
