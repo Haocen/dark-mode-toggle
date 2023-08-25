@@ -117,16 +117,16 @@ export class DarkModeToggle extends HTMLElement {
   }
 
   _initializeDOM() {
-    const shadowRoot = this.attachShadow({mode: 'open'});
+    const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.append(template.content.cloneNode(true));
 
     // We need to support `media="(prefers-color-scheme: dark)"` (with space)
     // and `media="(prefers-color-scheme:dark)"` (without space)
     this._darkCSS = doc.querySelectorAll(
-        `${LINK_REL_STYLESHEET}[${MEDIA}*=${PREFERS_COLOR_SCHEME}][${MEDIA}*="${DARK}"]`,
+      `${LINK_REL_STYLESHEET}[${MEDIA}*=${PREFERS_COLOR_SCHEME}][${MEDIA}*="${DARK}"]`,
     );
     this._lightCSS = doc.querySelectorAll(
-        `${LINK_REL_STYLESHEET}[${MEDIA}*=${PREFERS_COLOR_SCHEME}][${MEDIA}*="${LIGHT}"]`,
+      `${LINK_REL_STYLESHEET}[${MEDIA}*=${PREFERS_COLOR_SCHEME}][${MEDIA}*="${LIGHT}"]`,
     );
 
     // Get DOM references.
@@ -141,7 +141,7 @@ export class DarkModeToggle extends HTMLElement {
     this._legendLabel = shadowRoot.querySelector('legend');
     this._permanentAside = shadowRoot.querySelector('aside');
     this._permanentCheckbox = shadowRoot.querySelector(
-        '[part=permanentCheckbox]',
+      '[part=permanentCheckbox]',
     );
     this._permanentLabel = shadowRoot.querySelector('[part=permanentLabel]');
   }
@@ -151,12 +151,12 @@ export class DarkModeToggle extends HTMLElement {
     const hasNativePrefersColorScheme = matchMedia(MQ_DARK).media !== NOT_ALL;
     // Listen to `prefers-color-scheme` changes.
     if (hasNativePrefersColorScheme) {
-      matchMedia(MQ_DARK).addListener(({matches}) => {
+      matchMedia(MQ_DARK).addListener(({ matches }) => {
         if (this.permanent) {
           return;
         }
         this.mode = matches ? DARK : LIGHT;
-        this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
+        this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
       });
     }
     // Set initial state, giving preference to a remembered value, then the
@@ -209,20 +209,20 @@ export class DarkModeToggle extends HTMLElement {
         this.mode = this._lightRadio.checked ? LIGHT : DARK;
         this._updateCheckbox();
         this._updateSlider();
-        this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
+        this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
       });
     });
     this._darkCheckbox.addEventListener('change', () => {
       this.mode = this._darkCheckbox.checked ? DARK : LIGHT;
       this._updateRadios();
       this._updateSlider();
-      this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
+      this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
     });
     this._sliderCheckbox.addEventListener('change', () => {
       this.mode = this._sliderCheckbox.checked ? DARK : LIGHT;
       this._updateCheckbox();
       this._updateRadios();
-      this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
+      this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
     });
 
     // Make remembering the last mode optional
@@ -235,7 +235,7 @@ export class DarkModeToggle extends HTMLElement {
 
     // Finally update the mode and let the world know what's going on
     this._updateMode();
-    this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
+    this._dispatchEvent(COLOR_SCHEME_CHANGE, { colorScheme: this.mode });
     this._dispatchEvent(PERMANENT_COLOR_SCHEME, {
       permanent: this.permanent,
     });
@@ -264,7 +264,9 @@ export class DarkModeToggle extends HTMLElement {
       this._updateMode();
     } else if (name === APPEARANCE) {
       if (![TOGGLE, SWITCH, SLIDER].includes(newValue)) {
-        throw new RangeError(`Allowed values: "${TOGGLE}", "${SWITCH}" and "${SLIDER}".`);
+        throw new RangeError(
+          `Allowed values: "${TOGGLE}", "${SWITCH}" and "${SLIDER}".`,
+        );
       }
       this._updateAppearance();
     } else if (name === PERMANENT) {
@@ -303,25 +305,33 @@ export class DarkModeToggle extends HTMLElement {
 
   _dispatchEvent(type, value) {
     this.dispatchEvent(
-        new CustomEvent(type, {
-          bubbles: true,
-          composed: true,
-          detail: value,
-        }),
+      new CustomEvent(type, {
+        bubbles: true,
+        composed: true,
+        detail: value,
+      }),
     );
   }
 
   _updateAppearance() {
     // Hide or show the light-related affordances dependent on the appearance,
     // which can be "switch" , "toggle" or "slider".
-    this._lightRadio.hidden = this._lightLabel.hidden =
-      this._darkRadio.hidden = this._darkLabel.hidden =
-      this._darkCheckbox.hidden = this._checkboxLabel.hidden =
-      this._sliderCheckbox.hidden = this._sliderLabel.hidden = true;
+    this._lightRadio.hidden =
+      this._lightLabel.hidden =
+      this._darkRadio.hidden =
+      this._darkLabel.hidden =
+      this._darkCheckbox.hidden =
+      this._checkboxLabel.hidden =
+      this._sliderCheckbox.hidden =
+      this._sliderLabel.hidden =
+        true;
     switch (this.appearance) {
       case SWITCH:
-        this._lightRadio.hidden = this._lightLabel.hidden =
-          this._darkRadio.hidden = this._darkLabel.hidden = false;
+        this._lightRadio.hidden =
+          this._lightLabel.hidden =
+          this._darkRadio.hidden =
+          this._darkLabel.hidden =
+            false;
         break;
       case SLIDER:
         this._sliderCheckbox.hidden = this._sliderLabel.hidden = false;
@@ -344,8 +354,8 @@ export class DarkModeToggle extends HTMLElement {
   _updateCheckbox() {
     if (this.mode === LIGHT) {
       this._checkboxLabel.style.setProperty(
-          `--${NAME}-checkbox-icon`,
-          `var(--${NAME}-light-icon,url("${DEFAULT_URL}moon.png"))`,
+        `--${NAME}-checkbox-icon`,
+        `var(--${NAME}-light-icon,url("${DEFAULT_URL}moon.png"))`,
       );
       this._checkboxLabel.textContent = this.light;
       if (!this.light) {
@@ -354,8 +364,8 @@ export class DarkModeToggle extends HTMLElement {
       this._darkCheckbox.checked = false;
     } else {
       this._checkboxLabel.style.setProperty(
-          `--${NAME}-checkbox-icon`,
-          `var(--${NAME}-dark-icon,url("${DEFAULT_URL}sun.png"))`,
+        `--${NAME}-checkbox-icon`,
+        `var(--${NAME}-dark-icon,url("${DEFAULT_URL}sun.png"))`,
       );
       this._checkboxLabel.textContent = this.dark;
       if (!this.dark) {
