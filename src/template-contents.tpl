@@ -295,7 +295,7 @@
     justify-content: center;
     position: absolute;
     top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
-    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 2);
+    left: calc(var(--${NAME}-icon-size,1rem) * 0.25);
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
@@ -314,7 +314,7 @@
     justify-content: center;
     position: absolute;
     top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
-    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 1.75);
+    left: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
@@ -333,7 +333,7 @@
     justify-content: center;
     position: absolute;
     top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
-    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 1.75);
+    left: calc(var(--${NAME}-icon-size,1rem) * .75);
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
