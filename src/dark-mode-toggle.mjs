@@ -315,8 +315,9 @@ export class DarkModeToggle extends HTMLElement {
       this._updateThreeWayRadios();
       this._updateMode();
     } else if (name === APPEARANCE) {
-      if (![TOGGLE, SWITCH, SLIDER].includes(newValue)) {
-        throw new RangeError(`Allowed values: "${TOGGLE}", "${SWITCH}" and "${SLIDER}".`);
+      const allAppearanceOptions = [TOGGLE, SWITCH, SLIDER, THREE_WAY];
+      if (!allAppearanceOptions.includes(newValue)) {
+        throw new RangeError(`Allowed values are: "${allAppearanceOptions.join(`", "`)}".`);
       }
       this._updateAppearance();
     } else if (name === PERMANENT) {
