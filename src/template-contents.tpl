@@ -234,9 +234,11 @@
     background-color: #b7bbbd;
     border-radius: var(--${NAME}-icon-size, 1rem);
     transition: 0.4s;
-    margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
     vertical-align: bottom;
     /* z-index: 0; */
+  }
+  [part="lightThreeWayLabel"]:not([hidden]) {
+    margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
   }
   [part="systemThreeWayLabel"]:not([hidden]) {
     display: inline-block;
