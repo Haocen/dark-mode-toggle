@@ -249,7 +249,7 @@
     vertical-align: bottom;
     z-index: 1;
   }
-  /* thumb */
+  /* three-way thumb */
   [part="systemThreeWayLabel"]:not([hidden])::before {
     display: flex;
     align-items: center;
@@ -341,9 +341,19 @@
     box-sizing: border-box;
     opacity: .5;
   }
-  /* set background when it is dark */
+  /* wehn dark mode is effective */
   [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
     background-color: #4e5255;
+  }
+  [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden])::after {
+    filter: var(--${NAME}-icon-filter, invert(100%));
+  }
+  [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+    border-color: #000; /* inverted */
+    background-color: #ccc; /* inverted */
+    color: #000; /* inverted */
+    filter: var(--${NAME}-icon-filter, invert(100%));
+    box-shadow: 0 0.5px hsl(0deg 0% 100% / 16%);
   }
 </style>
 <form part="form">
