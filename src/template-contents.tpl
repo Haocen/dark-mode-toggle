@@ -118,8 +118,8 @@
     filter: var(--${NAME}-icon-filter, none);
   }
 
-  /* Make sure "sliderLaber" is right before aside otherwise won't work */
-  input:checked + [part="sliderLabel"] + aside [part="permanentLabel"]::before {
+  /* Make sure "sliderLaber" is before aside otherwise won't work */
+  input:checked + [part="sliderLabel"] ~ aside [part="permanentLabel"]::before {
     filter: var(--${NAME}-remember-filter, invert(100%));
   }
 
@@ -225,6 +225,139 @@
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
     filter: var(--${NAME}-icon-filter, invert(100%));
   }
+  [part="lightThreeWayLabel"]:not([hidden]),
+  [part="darkThreeWayLabel"]:not([hidden]) {
+    display: inline-block;
+    position: relative;
+    height: calc(var(--${NAME}-icon-size, 1rem) * 2);
+    width: calc(var(--${NAME}-icon-size, 1rem) * 2.5);
+    background-color: #b7bbbd;
+    border-radius: var(--${NAME}-icon-size, 1rem);
+    transition: 0.4s;
+    margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
+    vertical-align: bottom;
+    /* z-index: 0; */
+  }
+  [part="systemThreeWayLabel"]:not([hidden]) {
+    display: inline-block;
+    position: relative;
+    height: calc(var(--${NAME}-icon-size, 1rem) * 2);
+    width: calc(var(--${NAME}-icon-size, 1rem) * 2);
+    background-color: #b7bbbd;
+    transition: 0.4s;
+    margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
+    vertical-align: bottom;
+    z-index: 1;
+  }
+  /* thumb */
+  [part="systemThreeWayLabel"]:not([hidden])::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    left: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    border-radius: 100%;
+    /* border: 2px #333 solid; */
+    box-shadow: 0 0.15em 0.3em rgb(0 0 0 / 15%), 0 0.2em 0.5em rgb(0 0 0 / 30%);
+    background-color: #fff;
+    color: #333;
+    transition: 0.4s;
+    content: "";
+    background-position: center;
+    background-size: var(--${NAME}-icon-size, 1rem);
+    box-sizing: border-box;
+    z-index: 2;
+    filter: var(--${NAME}-icon-filter, invert(0));
+  }
+  [part="fieldset"]:has(input[part="lightThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+    left: calc(var(--${NAME}-icon-size, 1rem) * -1.5);
+    background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
+  }
+  [part="fieldset"]:has(input[part="systemThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+    left: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    background-image: var(--${NAME}-system-icon, url("${DEFAULT_URL}fa-yin-yang.svg"));
+  }
+  [part="fieldset"]:has(input[part="darkThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+    left: calc(var(--${NAME}-icon-size, 1rem) * 2);
+    background-image: var(--${NAME}-dark-icon, url("${DEFAULT_URL}fa-moon.svg"));
+  }
+  [part="lightThreeWayLabel"]:not([hidden])::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 2);
+    height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    border-radius: 100%;
+    color: #333;
+    content: "";
+    background-position: center;
+    background-size: var(--${NAME}-icon-size, 1rem);
+    background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    opacity: .5;
+  }
+  [part="systemThreeWayLabel"]:not([hidden])::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 1.75);
+    height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    border-radius: 100%;
+    color: #333;
+    content: "";
+    background-position: center;
+    background-size: var(--${NAME}-icon-size, 1rem);
+    background-image: var(--${NAME}-system-icon, url("${DEFAULT_URL}fa-yin-yang.svg"));
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    opacity: .5;
+  }
+  [part="darkThreeWayLabel"]:not([hidden])::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 1.75);
+    height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
+    border-radius: 100%;
+    color: #333;
+    content: "";
+    background-position: center;
+    background-size: var(--${NAME}-icon-size, 1rem);
+    background-image: var(--${NAME}-dark-icon, url("${DEFAULT_URL}fa-moon.svg"));
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    opacity: .5;
+  }
+  /* set background when prefers-color-scheme is effective */
+  @media (prefers-color-scheme: light) {
+    [part$="ThreeWayLabel"]:not([hidden]) {
+      background-color: #b7bbbd;
+    }
+    [part="fieldset"]:has(input[part="darkThreeWayRadio"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
+      background-color: #4e5255;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    [part$="ThreeWayLabel"]:not([hidden]) {
+      background-color: #4e5255;
+    }
+    [part="fieldset"]:has(input[part="lightThreeWayRadio"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
+      background-color: #b7bbbd;
+    }
+  }
 </style>
 <form part="form">
   <fieldset part="fieldset">
@@ -232,11 +365,17 @@
     <input part="lightRadio" id="l" name="mode" type="radio">
     <label part="lightLabel" for="l"></label>
     <input part="darkRadio" id="d" name="mode" type="radio">
-    <label  part="darkLabel" for="d"></label>
+    <label part="darkLabel" for="d"></label>
     <input part="toggleCheckbox" id="t" type="checkbox">
     <label part="toggleLabel" for="t"></label>
     <input part="sliderCheckbox" id="s" type="checkbox">
     <label part="sliderLabel" for="s"></label>
+    <input part="lightThreeWayRadio" id="3l" name="mode" type="radio">
+    <label part="lightThreeWayLabel" for="3l"></label>
+    <input part="systemThreeWayRadio" id="3s" name="mode" type="radio">
+    <label part="systemThreeWayLabel" for="3s"></label>
+    <input part="darkThreeWayRadio" id="3d" name="mode" type="radio">
+    <label part="darkThreeWayLabel" for="3d"></label>
     <aside part="aside">
       <input part="permanentCheckbox" id="p" type="checkbox">
       <label part="permanentLabel" for="p"></label>

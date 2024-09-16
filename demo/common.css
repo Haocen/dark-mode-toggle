@@ -102,7 +102,13 @@ aside:nth-of-type(5) {
 
 aside:nth-of-type(6) {
   width: 10rem;
-  top: 20rem;
+  top: 22rem;
+}
+
+aside:nth-of-type(7) {
+  width: 10rem;
+  top: 0;
+  left: 0;
 }
 
 #content select,
@@ -154,4 +160,10 @@ dark-mode-toggle {
 #dark-mode-toggle-5 {
   --dark-mode-toggle-remember-filter: invert(100%);
   --dark-mode-toggle-icon-size: 1rem;
+}
+
+#dark-mode-toggle-7 {
+  --dark-mode-toggle-remember-filter: invert(100%);
+  --dark-mode-toggle-icon-size: 1rem;
+  --dark-mode-toggle-system-icon: url("fa-yin-yang.svg");
 }
