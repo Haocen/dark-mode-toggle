@@ -232,13 +232,16 @@
     height: calc(var(--${NAME}-icon-size, 1rem) * 2);
     width: calc(var(--${NAME}-icon-size, 1rem) * 2.5);
     background-color: #b7bbbd;
-    border-radius: var(--${NAME}-icon-size, 1rem);
     transition: 0.4s;
     vertical-align: bottom;
     /* z-index: 0; */
   }
   [part="lightThreeWayLabel"]:not([hidden]) {
     margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
+    border-radius: var(--${NAME}-icon-size, 1rem) 0 0 var(--${NAME}-icon-size, 1rem);
+  }
+  [part="darkThreeWayLabel"]:not([hidden]) {
+    border-radius: 0 var(--${NAME}-icon-size, 1rem) var(--${NAME}-icon-size, 1rem) 0;
   }
   [part="systemThreeWayLabel"]:not([hidden]) {
     display: inline-block;
