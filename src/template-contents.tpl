@@ -341,22 +341,9 @@
     box-sizing: border-box;
     opacity: .5;
   }
-  /* set background when prefers-color-scheme is effective */
-  @media (prefers-color-scheme: light) {
-    [part$="ThreeWayLabel"]:not([hidden]) {
-      background-color: #b7bbbd;
-    }
-    [part="fieldset"]:has(input[part="darkThreeWayRadio"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
-      background-color: #4e5255;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    [part$="ThreeWayLabel"]:not([hidden]) {
-      background-color: #4e5255;
-    }
-    [part="fieldset"]:has(input[part="lightThreeWayRadio"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
-      background-color: #b7bbbd;
-    }
+  /* set background when it is dark */
+  [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
+    background-color: #4e5255;
   }
 </style>
 <form part="form">
