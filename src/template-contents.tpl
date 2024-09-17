@@ -225,19 +225,21 @@
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
     filter: var(--${NAME}-icon-filter, invert(100%));
   }
+  [part="threeWayRadioWrapper"] {
+    display: flex;
+  }
   [part="lightThreeWayLabel"]:not([hidden]),
   [part="darkThreeWayLabel"]:not([hidden]) {
     display: inline-block;
     position: relative;
     height: calc(var(--${NAME}-icon-size, 1rem) * 2);
-    width: calc(var(--${NAME}-icon-size, 1rem) * 2.5);
+    width: calc(var(--${NAME}-icon-size, 1rem)* 1.8);
     background-color: #b7bbbd;
     transition: 0.4s;
     vertical-align: bottom;
     /* z-index: 0; */
   }
   [part="lightThreeWayLabel"]:not([hidden]) {
-    margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
     border-radius: var(--${NAME}-icon-size, 1rem) 0 0 var(--${NAME}-icon-size, 1rem);
   }
   [part="darkThreeWayLabel"]:not([hidden]) {
@@ -247,10 +249,9 @@
     display: inline-block;
     position: relative;
     height: calc(var(--${NAME}-icon-size, 1rem) * 2);
-    width: calc(var(--${NAME}-icon-size, 1rem) * 2);
+    width: calc(var(--${NAME}-icon-size, 1rem)* 1.8);
     background-color: #b7bbbd;
     transition: 0.4s;
-    margin-right: calc(var(--${NAME}-icon-size, 1rem)* -1);
     vertical-align: bottom;
     z-index: 1;
   }
@@ -276,17 +277,18 @@
     box-sizing: border-box;
     z-index: 2;
     filter: var(--${NAME}-icon-filter, invert(0));
+    transform: translateX(-50%);
   }
   [part="fieldset"]:has(input[part="lightThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
-    left: calc(var(--${NAME}-icon-size, 1rem) * -1.5);
+    left: calc(50% - var(--${NAME}-icon-size,1rem) * 1.7);
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
   }
   [part="fieldset"]:has(input[part="systemThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
-    left: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    left: 50%;
     background-image: var(--${NAME}-system-icon, url("${DEFAULT_URL}fa-yin-yang.svg"));
   }
   [part="fieldset"]:has(input[part="darkThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
-    left: calc(var(--${NAME}-icon-size, 1rem) * 2);
+    left: calc(50% + var(--${NAME}-icon-size,1rem) * 1.7);
     background-image: var(--${NAME}-dark-icon, url("${DEFAULT_URL}fa-moon.svg"));
   }
   [part="lightThreeWayLabel"]:not([hidden])::after {
@@ -314,7 +316,8 @@
     justify-content: center;
     position: absolute;
     top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
-    left: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
+    left: 50%;
+    transform: translateX(-50%);
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
@@ -333,7 +336,7 @@
     justify-content: center;
     position: absolute;
     top: calc(var(--${NAME}-icon-size, 1rem) * 0.25);
-    left: calc(var(--${NAME}-icon-size,1rem) * .75);
+    left: calc(100% - var(--${NAME}-icon-size, 1rem) * 1.75); /* float right */
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
@@ -372,12 +375,14 @@
     <label part="toggleLabel" for="t"></label>
     <input part="sliderCheckbox" id="s" type="checkbox">
     <label part="sliderLabel" for="s"></label>
-    <input part="lightThreeWayRadio" id="3l" name="mode" type="radio">
-    <label part="lightThreeWayLabel" for="3l"></label>
-    <input part="systemThreeWayRadio" id="3s" name="mode" type="radio">
-    <label part="systemThreeWayLabel" for="3s"></label>
-    <input part="darkThreeWayRadio" id="3d" name="mode" type="radio">
-    <label part="darkThreeWayLabel" for="3d"></label>
+    <span part="threeWayRadioWrapper">
+      <input part="lightThreeWayRadio" id="3l" name="mode" type="radio">
+      <label part="lightThreeWayLabel" for="3l"></label>
+      <input part="systemThreeWayRadio" id="3s" name="mode" type="radio">
+      <label part="systemThreeWayLabel" for="3s"></label>
+      <input part="darkThreeWayRadio" id="3d" name="mode" type="radio">
+      <label part="darkThreeWayLabel" for="3d"></label>
+    </span>
     <aside part="aside">
       <input part="permanentCheckbox" id="p" type="checkbox">
       <label part="permanentLabel" for="p"></label>
