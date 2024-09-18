@@ -379,11 +379,11 @@
     <input part="sliderCheckbox" id="s" type="checkbox">
     <label part="sliderLabel" for="s"></label>
     <span part="threeWayRadioWrapper">
-      <input part="lightThreeWayRadio" id="3l" name="mode" type="radio">
+      <input part="lightThreeWayRadio" id="3l" name="three-way-mode" type="radio">
       <label part="lightThreeWayLabel" for="3l"></label>
-      <input part="systemThreeWayRadio" id="3s" name="mode" type="radio">
+      <input part="systemThreeWayRadio" id="3s" name="three-way-mode" type="radio">
       <label part="systemThreeWayLabel" for="3s"></label>
-      <input part="darkThreeWayRadio" id="3d" name="mode" type="radio">
+      <input part="darkThreeWayRadio" id="3d" name="three-way-mode" type="radio">
       <label part="darkThreeWayLabel" for="3d"></label>
     </span>
     <aside part="aside">
