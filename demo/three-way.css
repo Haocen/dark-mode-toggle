@@ -1,0 +1,62 @@
+dark-mode-toggle.three-way::part(lightThreeWayLabel),
+dark-mode-toggle.three-way::part(systemThreeWayLabel),
+dark-mode-toggle.three-way::part(darkThreeWayLabel) {
+  background-color: initial;
+  width: auto;
+  height: auto;
+  border-radius: initial;
+  padding-right: 10px;
+}
+
+dark-mode-toggle.three-way::part(lightThreeWayLabel)::after,
+dark-mode-toggle.three-way::part(systemThreeWayLabel)::after,
+dark-mode-toggle.three-way::part(darkThreeWayLabel)::after {
+  display: none;
+}
+
+dark-mode-toggle.three-way::part(lightThreeWayLabel)::before,
+dark-mode-toggle.three-way::part(systemThreeWayLabel)::before,
+dark-mode-toggle.three-way::part(darkThreeWayLabel)::before {
+  display: inline-block;
+  align-items: initial;
+  justify-content: initial;
+  position: initial;
+  top: initial;
+  left: initial;
+  height: var(--dark-mode-toggle-icon-size, 1rem);
+  width: var(--dark-mode-toggle-icon-size, 1rem);
+  border-radius: initial;
+  box-shadow: initial;
+  background-color: initial;
+  color: initial;
+  transition: initial;
+  content: "";
+  box-sizing: initial;
+  transform: initial;
+  margin: 0 .5rem;
+  filter: initial;
+}
+
+dark-mode-toggle.three-way::part(lightThreeWayLabel)::before {
+  background-image: url(sun.png);
+}
+
+dark-mode-toggle.three-way::part(systemThreeWayLabel)::before {
+  background-image: url(yin-yang.png);
+}
+
+dark-mode-toggle.three-way::part(darkThreeWayLabel)::before {
+  background-image: url(moon.png);
+}
+
+dark-mode-toggle.three-way[permanent][mode="light"]::part(lightThreeWayLabel) {
+  background-color: rgb(240 0 0 / 50%);
+}
+
+dark-mode-toggle.three-way:not([permanent])::part(systemThreeWayLabel) {
+  background-color: rgb(0 240 0 / 50%);
+}
+
+dark-mode-toggle.three-way[permanent][mode="dark"]::part(darkThreeWayLabel) {
+  background-color: rgb(0 0 240 / 50%);
+}
