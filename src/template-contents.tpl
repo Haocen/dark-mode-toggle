@@ -85,7 +85,10 @@
 
   [part="lightLabel"],
   [part="darkLabel"],
-  [part="toggleLabel"] {
+  [part="toggleLabel"],
+  [part="lightThreeWayLabel"],
+  [part="systemThreeWayLabel"],
+  [part="darkThreeWayLabel"] {
     font: var(--${NAME}-label-font, inherit);
   }
 
