@@ -282,15 +282,15 @@
     filter: var(--${NAME}-icon-filter, invert(0));
     transform: translateX(-50%);
   }
-  [part="threeWayRadioWrapper"]:has(input[part="lightThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+  [part="threeWayRadioWrapper"]:has(input[part="lightThreeWayRadio"]:checked) > [part="systemThreeWayLabel"]:not([hidden])::before {
     left: calc(50% - var(--${NAME}-icon-size,1rem) * 1.7);
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
   }
-  [part="threeWayRadioWrapper"]:has(input[part="systemThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+  [part="threeWayRadioWrapper"]:has(input[part="systemThreeWayRadio"]:checked) > [part="systemThreeWayLabel"]:not([hidden])::before {
     left: 50%;
     background-image: var(--${NAME}-system-icon, url("${DEFAULT_URL}fa-yin-yang.svg"));
   }
-  [part="threeWayRadioWrapper"]:has(input[part="darkThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+  [part="threeWayRadioWrapper"]:has(input[part="darkThreeWayRadio"]:checked) > [part="systemThreeWayLabel"]:not([hidden])::before {
     left: calc(50% + var(--${NAME}-icon-size,1rem) * 1.7);
     background-image: var(--${NAME}-dark-icon, url("${DEFAULT_URL}fa-moon.svg"));
   }
@@ -352,7 +352,7 @@
     box-sizing: border-box;
     opacity: .5;
   }
-  /* wehn dark mode is effective */
+  /* when dark mode is effective */
   [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
     background-color: #4e5255;
   }
