@@ -259,7 +259,7 @@
     z-index: 1;
   }
   /* three-way thumb */
-  [part="systemThreeWayLabel"]:not([hidden])::before {
+  [part="darkThreeWayLabel"]:not([hidden])::before {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -282,16 +282,16 @@
     filter: var(--${NAME}-icon-filter, invert(0));
     transform: translateX(-50%);
   }
-  [part="threeWayRadioWrapper"]:has(input[part="lightThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
-    left: calc(50% - var(--${NAME}-icon-size,1rem) * 1.7);
+  input[part="lightThreeWayRadio"]:checked ~ [part="darkThreeWayLabel"]:not([hidden])::before {
+    left: calc(50% - var(--${NAME}-icon-size,1rem) * 3.5);
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
   }
-  [part="threeWayRadioWrapper"]:has(input[part="systemThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
-    left: 50%;
+  input[part="systemThreeWayRadio"]:checked ~ [part="darkThreeWayLabel"]:not([hidden])::before {
+    left: calc(50% - var(--${NAME}-icon-size,1rem) * 1.77);
     background-image: var(--${NAME}-system-icon, url("${DEFAULT_URL}fa-yin-yang.svg"));
   }
-  [part="threeWayRadioWrapper"]:has(input[part="darkThreeWayRadio"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
-    left: calc(50% + var(--${NAME}-icon-size,1rem) * 1.7);
+  input[part="darkThreeWayRadio"]:checked ~ [part="darkThreeWayLabel"]:not([hidden])::before {
+    left: calc(50% - var(--dark-mode-toggle-icon-size,1rem) * 0.1);
     background-image: var(--${NAME}-dark-icon, url("${DEFAULT_URL}fa-moon.svg"));
   }
   [part="lightThreeWayLabel"]:not([hidden])::after {
@@ -352,14 +352,14 @@
     box-sizing: border-box;
     opacity: .5;
   }
-  /* wehn dark mode is effective */
-  [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
+  /* when dark mode is effective */
+  input[part="sliderCheckbox"]:checked ~ [part="threeWayRadioWrapper"] [part$="ThreeWayLabel"]:not([hidden]) {
     background-color: #4e5255;
   }
-  [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden])::after {
+  input[part="sliderCheckbox"]:checked ~ [part="threeWayRadioWrapper"] [part$="ThreeWayLabel"]:not([hidden])::after {
     filter: var(--${NAME}-icon-filter, invert(100%));
   }
-  [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
+  input[part="sliderCheckbox"]:checked ~ [part="threeWayRadioWrapper"] [part="darkThreeWayLabel"]:not([hidden])::before {
     border-color: #000; /* inverted */
     background-color: #ccc; /* inverted */
     color: #000; /* inverted */
