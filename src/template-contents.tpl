@@ -170,6 +170,7 @@
     border-radius: var(--${NAME}-icon-size, 1rem);
     transition: 0.4s;
   }
+
   [part="sliderLabel"]:not([hidden])::before {
     display: flex;
     align-items: center;
@@ -180,6 +181,7 @@
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
+
     /* border: 2px #333 solid; */
     box-shadow: 0 0.15em 0.3em rgb(0 0 0 / 15%), 0 0.2em 0.5em rgb(0 0 0 / 30%);
     background-color: #fff;
@@ -191,9 +193,11 @@
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
     box-sizing: border-box;
   }
+
   input:checked + [part="sliderLabel"] {
     background-color: #4e5255;
   }
+
   input:checked + [part="sliderLabel"]:not([hidden])::before {
     left: calc(100% - var(--${NAME}-icon-size, 1rem) * 1.75);
     border-color: #000; /* inverted */
@@ -204,6 +208,7 @@
     filter: var(--${NAME}-icon-filter, invert(100%));
     box-shadow: 0 0.5px hsl(0deg 0% 100% / 16%);
   }
+
   [part="sliderLabel"]:not([hidden])::after {
     display: flex;
     align-items: center;
@@ -223,14 +228,17 @@
     box-sizing: border-box;
     opacity: .5;
   }
+
   input:checked + [part="sliderLabel"]:not([hidden])::after {
     left: calc(var(--${NAME}-icon-size,1rem) * 0.25);
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
     filter: var(--${NAME}-icon-filter, invert(100%));
   }
+
   [part="threeWayRadioWrapper"] {
     display: flex;
   }
+
   [part="lightThreeWayLabel"]:not([hidden]),
   [part="darkThreeWayLabel"]:not([hidden]) {
     display: inline-block;
@@ -240,14 +248,18 @@
     background-color: #b7bbbd;
     transition: 0.4s;
     vertical-align: bottom;
+
     /* z-index: 0; */
   }
+
   [part="lightThreeWayLabel"]:not([hidden]) {
     border-radius: var(--${NAME}-icon-size, 1rem) 0 0 var(--${NAME}-icon-size, 1rem);
   }
+
   [part="darkThreeWayLabel"]:not([hidden]) {
     border-radius: 0 var(--${NAME}-icon-size, 1rem) var(--${NAME}-icon-size, 1rem) 0;
   }
+
   [part="systemThreeWayLabel"]:not([hidden]) {
     display: inline-block;
     position: relative;
@@ -258,6 +270,7 @@
     vertical-align: bottom;
     z-index: 1;
   }
+
   /* three-way thumb */
   [part="systemThreeWayLabel"]:not([hidden])::before {
     display: flex;
@@ -269,6 +282,7 @@
     height: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     width: calc(var(--${NAME}-icon-size, 1rem) * 1.5);
     border-radius: 100%;
+
     /* border: 2px #333 solid; */
     box-shadow: 0 0.15em 0.3em rgb(0 0 0 / 15%), 0 0.2em 0.5em rgb(0 0 0 / 30%);
     background-color: #fff;
@@ -282,18 +296,22 @@
     filter: var(--${NAME}-icon-filter, invert(0));
     transform: translateX(-50%);
   }
+
   [part="threeWayRadioWrapper"]:has(input[part="lightThreeWayRadio"]:checked) > [part="systemThreeWayLabel"]:not([hidden])::before {
     left: calc(50% - var(--${NAME}-icon-size,1rem) * 1.7);
     background-image: var(--${NAME}-light-icon, url("${DEFAULT_URL}fa-sun.svg"));
   }
+
   [part="threeWayRadioWrapper"]:has(input[part="systemThreeWayRadio"]:checked) > [part="systemThreeWayLabel"]:not([hidden])::before {
     left: 50%;
     background-image: var(--${NAME}-system-icon, url("${DEFAULT_URL}fa-yin-yang.svg"));
   }
+
   [part="threeWayRadioWrapper"]:has(input[part="darkThreeWayRadio"]:checked) > [part="systemThreeWayLabel"]:not([hidden])::before {
     left: calc(50% + var(--${NAME}-icon-size,1rem) * 1.7);
     background-image: var(--${NAME}-dark-icon, url("${DEFAULT_URL}fa-moon.svg"));
   }
+
   [part="lightThreeWayLabel"]:not([hidden])::after {
     display: flex;
     align-items: center;
@@ -313,6 +331,7 @@
     box-sizing: border-box;
     opacity: .5;
   }
+
   [part="systemThreeWayLabel"]:not([hidden])::after {
     display: flex;
     align-items: center;
@@ -333,6 +352,7 @@
     box-sizing: border-box;
     opacity: .5;
   }
+
   [part="darkThreeWayLabel"]:not([hidden])::after {
     display: flex;
     align-items: center;
@@ -352,13 +372,16 @@
     box-sizing: border-box;
     opacity: .5;
   }
+
   /* when dark mode is effective */
   [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden]) {
     background-color: #4e5255;
   }
+
   [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part$="ThreeWayLabel"]:not([hidden])::after {
     filter: var(--${NAME}-icon-filter, invert(100%));
   }
+
   [part="fieldset"]:has(input[part="sliderCheckbox"]:checked) [part="systemThreeWayLabel"]:not([hidden])::before {
     border-color: #000; /* inverted */
     background-color: #ccc; /* inverted */

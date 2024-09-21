@@ -38,15 +38,15 @@ dark-mode-toggle.three-way::part(darkThreeWayLabel)::before {
 }
 
 dark-mode-toggle.three-way::part(lightThreeWayLabel)::before {
-  background-image: url(sun.png);
+  background-image: url("sun.png");
 }
 
 dark-mode-toggle.three-way::part(systemThreeWayLabel)::before {
-  background-image: url(yin-yang.png);
+  background-image: url("yin-yang.png");
 }
 
 dark-mode-toggle.three-way::part(darkThreeWayLabel)::before {
-  background-image: url(moon.png);
+  background-image: url("moon.png");
 }
 
 dark-mode-toggle.three-way[permanent][mode="light"]::part(lightThreeWayLabel) {
