@@ -204,7 +204,7 @@ export class DarkModeToggle extends HTMLElement {
       this.appearance = TOGGLE;
     }
 
-    // Update the appearance to toggle, switch or slider.
+    // Update the appearance to toggle, switch, slider or three-way.
     this._updateAppearance();
 
     // Update the radios
