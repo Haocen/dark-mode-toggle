@@ -248,6 +248,7 @@ export class DarkModeToggle extends HTMLElement {
       this.permanent = true;
       this._updateCheckbox();
       this._updateRadios();
+      this._updateSlider();
       this._updateThreeWayRadios();
       this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
       this._dispatchEvent(PERMANENT_COLOR_SCHEME, {
@@ -259,6 +260,7 @@ export class DarkModeToggle extends HTMLElement {
       this.permanent = true;
       this._updateCheckbox();
       this._updateRadios();
+      this._updateSlider();
       this._updateThreeWayRadios();
       this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
       this._dispatchEvent(PERMANENT_COLOR_SCHEME, {
@@ -270,6 +272,7 @@ export class DarkModeToggle extends HTMLElement {
       this.permanent = false;
       this._updateCheckbox();
       this._updateRadios();
+      this._updateSlider();
       this._updateThreeWayRadios();
       this._dispatchEvent(COLOR_SCHEME_CHANGE, {colorScheme: this.mode});
       this._dispatchEvent(PERMANENT_COLOR_SCHEME, {
@@ -357,10 +360,7 @@ export class DarkModeToggle extends HTMLElement {
   }
 
   _getPrefersColorScheme() {
-    if (window.matchMedia(MQ_DARK).matches) {
-      return DARK;
-    }
-    return LIGHT;
+    return matchMedia(MQ_LIGHT).matches ? LIGHT : DARK;
   }
 
   _dispatchEvent(type, value) {
